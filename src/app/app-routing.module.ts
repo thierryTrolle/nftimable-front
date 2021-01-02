@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'market', component: MarketComponent },
   { path: 'register', component: RegisterComponent },
-
+  {path: 'register/:id',component: RegisterComponent}
 ];
 
 @NgModule({

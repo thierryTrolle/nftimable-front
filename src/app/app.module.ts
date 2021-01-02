@@ -12,7 +12,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { ModalDisclaimerComponent } from './modal-disclaimer/modal-disclaimer.component';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatInputModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ModalInfoComponent } from './modal-info/modal-info.component';
 
 @NgModule({
   declarations: [
@@ -24,17 +27,22 @@ import { MatDialogModule } from '@angular/material';
     NavbarComponent,
     RegisterComponent,
     ModalDisclaimerComponent,
-    ModalLoginComponent
+    ModalLoginComponent,
+    ModalInfoComponent
   ],
   entryComponents: [
     ModalDisclaimerComponent,
     ModalLoginComponent,
+    ModalInfoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatDialogModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

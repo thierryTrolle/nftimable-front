@@ -1,1 +1,60 @@
-<p>modal-login works!</p>
+<div class="mat-dialog">
+    <div class="mat-content">
+        <div class="mat-header justify-content-center">
+            <button type="button" class="close" [mat-dialog-close]="true">
+                <i class="tim-icons icon-simple-remove text-white"></i>
+            </button>
+            <div class="text-muted text-center ml-auto mr-auto" style="align-content: center;">
+                <h3 class="mb-0">Sign in / Login</h3>
+            </div>
+            <!-- <button type="button" class="close">
+                <i class="tim-icons icon-simple-remove text-white"></i>
+            </button> -->
+        </div>
+        <div class="mat-body">
+            <!-- <div class="btn-wrapper text-center">
+            <a href="#" class="btn btn-neutral btn-icon">
+              <img src="assets/img/github.svg">
+            </a>
+            <a href="#" class="btn btn-neutral btn-icon">
+              <img src="assets/img/google.svg">
+            </a>
+          </div> -->
+            <div class="text-center text-muted mb-4 mt-3">
+                <small>Sign in with credentials</small>
+            </div>
+            <form role="form">
+                <div class="form-group mb-3">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="tim-icons icon-email-85"></i>
+                            </span>
+                        </div>
+                        <input class="form-control" placeholder="Email" type="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="tim-icons icon-key-25"></i>
+                            </span>
+                        </div>
+                        <input class="form-control" placeholder="Password" type="password">
+                    </div>
+                </div>
+                <div class="form-check mt-3">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" checked>
+                        <span class="form-check-sign"></span>
+                        Remember me!
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary my-4">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

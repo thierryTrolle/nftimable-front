@@ -13,7 +13,7 @@
                         </h3>
                         <p class="text-white mb-3">You already have an account.</p>
                         <div class="btn-wrapper">
-                            <a href="examples/register-page.html" class="btn btn-info">Login</a>
+                            <a href="javascript:void(0)" class="btn btn-info" (click)="login()">Login</a>
                         </div>
                     </div>
                     <div class="col-lg-6 mb-lg-auto">
@@ -30,7 +30,7 @@
                                                 <i class="tim-icons icon-single-02"></i>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Name">
+                                        <input type="text" class="form-control"  placeholder="First name" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}">
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -38,7 +38,7 @@
                                                 <i class="tim-icons icon-single-02"></i>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="First name">
+                                        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="user.name" [ngModelOptions]="{standalone: true}">
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -46,7 +46,7 @@
                                                 <i class="tim-icons icon-email-85"></i>
                                             </div>
                                         </div>
-                                        <input type="text" placeholder="Email" class="form-control">
+                                        <input type="text"  placeholder="Email" class="form-control" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -54,7 +54,7 @@
                                                 <i class="tim-icons icon-lock-circle"></i>
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Password">
+                                        <input type="text" class="form-control" placeholder="Password" [(ngModel)]="user.passwd" [ngModelOptions]="{standalone: true}">
                                     </div>
                                     <div class="form-check text-left"  id="modals">
                                         <label class="form-check-label">
@@ -68,7 +68,7 @@
                                 </form>
                             </div>
                             <div class="card-footer">
-                                <a href="javascript:void(0)" class="btn btn-info btn-round btn-lg">Get Started</a>
+                                <a href="javascript:void(0)" class="btn btn-info btn-round btn-lg" (click)="register()">Get Started</a>
                             </div>
                         </div>
                     </div>
