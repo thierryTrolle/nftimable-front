@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { UserBo } from '../common/bo/user-bo';
+import { AuthentificationService } from '../common/service/authentification.service';
 import { LoginService } from '../common/service/login.service';
 import { ModalDisclaimerComponent } from '../modal-disclaimer/modal-disclaimer.component';
 import { ModalInfoComponent } from '../modal-info/modal-info.component';
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
     public dialog: MatDialog, //popup dialog
     private loginService:LoginService,
     private route: ActivatedRoute,
+    private authentificationService:AuthentificationService,
   ) { }
 
   ngOnInit() {
@@ -37,7 +39,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  login(){
+  loginPopup(){
     this.dialog.open(ModalLoginComponent, {
       data: {
       },
@@ -56,8 +58,8 @@ export class RegisterComponent implements OnInit {
             data: {
               title: 'Account Activated',
               content: 'Thank you, now you can login.',
-              panelClass: 'modal-info'
-            }
+            },
+            panelClass: 'modal-info'
           });
 
           this.user=new UserBo;
@@ -66,16 +68,16 @@ export class RegisterComponent implements OnInit {
             data: {
               title: 'Connection trouble',
               content: 'Something goes wrong, please retry later',
-              panelClass: 'modal-info'
-            }
+            },
+            panelClass: 'modal-info'
           });
         }else{
           this.dialog.open(ModalInfoComponent, {
             data: {
               title: 'Connection trouble',
               content: 'Something goes wrong, please retry later',
-              panelClass: 'modal-info'
-            }
+            },
+            panelClass: 'modal-info'
           });
         }
       },
@@ -85,17 +87,17 @@ export class RegisterComponent implements OnInit {
     )
   }
 
-  // test(){
-  //   this.dialog.open(ModalInfoComponent, {
-  //     data: {
-  //       title: 'Account Activated',
-  //       content: 'Thank you, now you sign in.'
-  //     },
-  //     height: '240px',
-  //     width: '280px',
-  //     panelClass: 'modal-info'
-  //   });
-  // }
+  test(){
+    this.dialog.open(ModalInfoComponent, {
+      data: {
+        title: 'Account Activated',
+        content: 'Thank you, now you sign in.'
+      },
+      height: '240px',
+      width: '280px',
+      panelClass: 'modal-info'
+    });
+  }
 
   register(){
     console.log(this.user);

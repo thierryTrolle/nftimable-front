@@ -31,7 +31,7 @@
                                 <i class="tim-icons icon-email-85"></i>
                             </span>
                         </div>
-                        <input class="form-control" placeholder="Email" type="email">
+                        <input class="form-control" placeholder="Email" type="email"  [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,7 +41,7 @@
                                 <i class="tim-icons icon-key-25"></i>
                             </span>
                         </div>
-                        <input class="form-control" placeholder="Password" type="password">
+                        <input class="form-control" placeholder="Password" type="password" [(ngModel)]="user.passwd" [ngModelOptions]="{standalone: true}">
                     </div>
                 </div>
                 <div class="form-check mt-3">
@@ -52,7 +52,8 @@
                     </label>
                 </div>
                 <div class="text-center">
-                    <button type="button" class="btn btn-primary my-4">Sign in</button>
+                    <button type="button" class="btn btn-primary my-4" (click)="login()">Sign in</button>
+                    <!-- <button type="button" class="btn btn-primary my-4" (click)="test()">Test</button> -->
                 </div>
             </form>
         </div>

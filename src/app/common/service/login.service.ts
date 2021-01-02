@@ -22,25 +22,6 @@ export class LoginService {
     private http: HttpClient
   ) { }
 
-    /**
-   * Call login method on server and save the token here if success.
-   * 
-   * @param user : must contain mail and password.
-   */
-  login(loginRequest: LoginRequestBo): Observable<RestResponseBo<string>> {
-    return this.http.post<RestResponseBo<string>>(this.url + 'login', loginRequest, httpOptions).pipe(
-      tap(x => {
-        if(x.code==1){
-          this.log('result ok');
-        }else{
-          this.log('login fail');
-        }
-      }
-      ),
-      catchError(this.handleError<RestResponseBo<string>>('login error !'))
-    );
-  }
-
   /**
    * TO register user
    * @param userBo user datas
