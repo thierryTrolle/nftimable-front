@@ -1,4 +1,4 @@
-::ng-deep .mat-dialog-container {
+::ng-deep .modal-info .mat-dialog-container {
     /* height: 400px !important;
     width: 400px !important; */
     background: #1f2251;
@@ -13,11 +13,11 @@
     box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
 }
 
-::ng-deep h3, .h3 {
+/* ::ng-deep h3, .h3 {
     margin-bottom: 30px;
     line-height: 1.4em;
     font-size: 1.4375rem;
-}
+} */
 
 ::ng-deep .mb-0, .my-0 {
     margin-bottom: 0 !important;
@@ -27,7 +27,7 @@
     font-size: 1.4375rem;
 }
 
-::ng-deep .mat-header {
+::ng-deep .modal-info .mat-header-info {
     /* display: flex; */
     align-items: flex-start;
     justify-content: space-between;
@@ -38,7 +38,7 @@
 }
 
 
-::ng-deep .mat-content .mat-header button {
+::ng-deep .modal-info .mat-content-info .mat-header-info button {
     /* position:absolute; */
     /* right: 27px;
     top: 24px; */
@@ -48,14 +48,14 @@
     
 }
 
-::ng-deep button.close {
+::ng-deep .modal-info button.close {
     padding: 0;
     background-color: transparent;
     border: 0;
     -webkit-appearance: none;
 }
 
-::ng-deep .close {
+::ng-deep .modal-info .close {
     float: right;
     font-size: 1.3125rem;
     font-weight: 600;
@@ -65,25 +65,25 @@
     opacity: .5;
 }
 
-::ng-deep .mat-content .mat-header {
+::ng-deep .modal-info .mat-content-info .mat-header-info {
     border-bottom: none;
 }
 
-::ng-deep .mat.mat-black .mat-content {
+::ng-deep .modal-info .mat.mat-black .mat-content {
     background: #1f2251;
     color: rgba(255, 255, 255, 0.8);
 }
 
-::ng-deep .justify-content-center {
+::ng-deep .modal-info .justify-content-center {
     justify-content: center !important;
 }
 
-::ng-deep .mat-dialog-actions {
+::ng-deep .modal-info .mat-dialog-actions {
     justify-content: flex-end;
 }
 
 
-::ng-deep .mat-body {
+::ng-deep .modal-info .mat-body-info {
     position: relative;
     flex: 1 1 auto;
     padding: 24px 24px 16px 24px;

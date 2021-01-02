@@ -32,7 +32,8 @@ export class RegisterComponent implements OnInit {
       data: {
       },
       height: '700px',
-      width: '1200px'
+      width: '1200px',
+      panelClass: 'modal-disclaimer'
     });
   }
 
@@ -41,7 +42,8 @@ export class RegisterComponent implements OnInit {
       data: {
       },
       height: '380px',
-      width: '550px'
+      width: '550px',
+      panelClass: 'modal-login'
     });
   }
 
@@ -53,7 +55,8 @@ export class RegisterComponent implements OnInit {
           this.dialog.open(ModalInfoComponent, {
             data: {
               title: 'Account Activated',
-              content: 'Thank you, now you can login.'
+              content: 'Thank you, now you can login.',
+              panelClass: 'modal-info'
             }
           });
 
@@ -62,14 +65,16 @@ export class RegisterComponent implements OnInit {
           this.dialog.open(ModalInfoComponent, {
             data: {
               title: 'Connection trouble',
-              content: 'Something goes wrong, please retry later'
+              content: 'Something goes wrong, please retry later',
+              panelClass: 'modal-info'
             }
           });
         }else{
           this.dialog.open(ModalInfoComponent, {
             data: {
               title: 'Connection trouble',
-              content: 'Something goes wrong, please retry later'
+              content: 'Something goes wrong, please retry later',
+              panelClass: 'modal-info'
             }
           });
         }
@@ -80,6 +85,18 @@ export class RegisterComponent implements OnInit {
     )
   }
 
+  // test(){
+  //   this.dialog.open(ModalInfoComponent, {
+  //     data: {
+  //       title: 'Account Activated',
+  //       content: 'Thank you, now you sign in.'
+  //     },
+  //     height: '240px',
+  //     width: '280px',
+  //     panelClass: 'modal-info'
+  //   });
+  // }
+
   register(){
     console.log(this.user);
     this.loginService.register(this.user).subscribe(
@@ -87,9 +104,12 @@ export class RegisterComponent implements OnInit {
         if(x && x.code==0){
           this.dialog.open(ModalInfoComponent, {
             data: {
-              title: 'Account validation',
-              content: 'Please check your mail and click on validation link.'
-            }
+              title: 'Account Activated',
+              content: 'Thank you, now you sign in.'
+            },
+            height: '240px',
+            width: '280px',
+            panelClass: 'modal-info'
           });
           this.user=new UserBo;
         }else if(!x){
@@ -97,14 +117,16 @@ export class RegisterComponent implements OnInit {
             data: {
               title: 'Connection trouble',
               content: 'Something goes wrong, please retry later'
-            }
+            },
+            panelClass: 'modal-info'
           });
         }else{
           this.dialog.open(ModalInfoComponent, {
             data: {
               title: 'Connection trouble',
               content: 'Something goes wrong, please retry later'
-            }
+            },
+            panelClass: 'modal-info'
           });
         }
       },
