@@ -1,5 +1,6 @@
-::ng-deep .mat-dialog-container {
+::ng-deep .modal-disclaimer .mat-dialog-container {
     /* height: 400px !important;
     width: 400px !important; */
     background-color: rgba(0, 0, 0, 0.795);
+    padding: 24px;
 }
