@@ -16,6 +16,7 @@ import { MatDialogModule, MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalInfoComponent } from './modal-info/modal-info.component';
+import { CollectionComponent } from './collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ModalInfoComponent } from './modal-info/modal-info.component';
     RegisterComponent,
     ModalDisclaimerComponent,
     ModalLoginComponent,
-    ModalInfoComponent
+    ModalInfoComponent,
+    CollectionComponent
   ],
   entryComponents: [
     ModalDisclaimerComponent,
