@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalInfoComponent } from './modal-info/modal-info.component';
 import { CollectionComponent } from './collection/collection.component';
+import { Web3Service } from './common/service/web3.service';
+import { NftimableContractService } from './common/service/nftimable-contract.service';
+
+export function web3Init(web3Service: Web3Service) {
+  return () => web3Service.bootstrapWeb3();
+}
+
+export function nftimableContractWeb3Init(nftimableContractService: NftimableContractService){
+  return () => nftimableContractService.bootstrap();
+}
+
 
 @NgModule({
   declarations: [
@@ -46,7 +57,20 @@ import { CollectionComponent } from './collection/collection.component';
     FormsModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: web3Init,
+      multi: true,
+      deps: [Web3Service]
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: nftimableContractWeb3Init,
+      multi: true,
+      deps: [NftimableContractService]
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
