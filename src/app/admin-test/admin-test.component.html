@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <div class="page-header header-filter">
+        <div class="squares square1"></div>
+        <div class="squares square2"></div>
+        <div class="squares square3"></div>
+        <div class="squares square4"></div>
+        <div class="squares square5"></div>
+        <div class="squares square6"></div>
+        <div class="squares square7"></div>
+        <div class="container">
+            <div class="content-center brand">
+                <div *ngIf="!web3Service.isReady()">
+                    <h1 class="h1-seo">Wallet not connected</h1>
+                    <button class="btn btn-neutral" (click)="connectWallet()">Connect</button>
+                </div>
+
+                <div *ngIf="web3Service.isReady()">
+                    <h1 class="h1-seo">Create Collection</h1>
+
+                    <div class="card card-register">
+             
+                        <div class="card-body">
+                            <form class="form">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="tim-icons icon-single-02"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="id" [(ngModel)]="id"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="tim-icons icon-single-02"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="amount" [(ngModel)]="amount"
+                                        [ngModelOptions]="{standalone: true}">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="tim-icons icon-email-85"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" placeholder="nftPriceUnit" class="form-control"
+                                        [(ngModel)]="nftPriceUnit" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-neutral" (click)="createCollection()">Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>

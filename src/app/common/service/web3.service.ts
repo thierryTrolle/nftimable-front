@@ -43,6 +43,17 @@ export class Web3Service {
   }
 
   /**
+   * Return true if wallet is ready
+   */
+  public isReady():boolean{
+    return this.ready;
+  }
+
+  public getCurrentAccount(){
+    return this.accounts[0];
+  }
+
+  /**
    * Starting by app.module.js, must start before component  
    */
   public bootstrapWeb3() {
@@ -61,11 +72,11 @@ export class Web3Service {
       // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
       this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
     }
-    setInterval(() => this.refreshAccounts(), 500);
+    setInterval(() => this.refreshAccounts(), (2*1000));
   }
 
   /**
-   * Obeserve account change
+   * Observe account change
    */
   public getEventAccountChange():Observable<any>{
     if (!this.web3) {
@@ -110,15 +121,7 @@ export class Web3Service {
   }
 
   public getBalance(address: String): Observable<any> {
-
     return from(this.web3.eth.getBalance(address));
-    // Return lettre par lettre !!!
-    // return from(this.web3.eth.getBalance(address)).pipe(
-    //   mergeMap( balanceW => {
-    //     console.log("balanceW:"+balanceW);
-    //     return this.web3.utils.fromWei(balanceW,'ether');
-    //   })
-    // )
   }
 
   /**
@@ -126,11 +129,12 @@ export class Web3Service {
    */
   private async refreshAccounts() {
     const accs = await this.web3.eth.getAccounts();
-    // console.log('Refreshing accounts');
+    //console.log('Refreshing accounts');
 
     // Get the initial account balance so it can be displayed.
     if (accs.length === 0) {
       console.warn('Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.');
+      this.ready=false;
       return;
     }
 

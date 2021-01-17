@@ -19,14 +19,7 @@ import { ModalInfoComponent } from './modal-info/modal-info.component';
 import { CollectionComponent } from './collection/collection.component';
 import { Web3Service } from './common/service/web3.service';
 import { NftimableContractService } from './common/service/nftimable-contract.service';
-
-export function web3Init(web3Service: Web3Service) {
-  return () => web3Service.bootstrapWeb3();
-}
-
-export function nftimableContractWeb3Init(nftimableContractService: NftimableContractService){
-  return () => nftimableContractService.bootstrap();
-}
+import { AdminTestComponent } from './admin-test/admin-test.component';
 
 
 @NgModule({
@@ -41,7 +34,8 @@ export function nftimableContractWeb3Init(nftimableContractService: NftimableCon
     ModalDisclaimerComponent,
     ModalLoginComponent,
     ModalInfoComponent,
-    CollectionComponent
+    CollectionComponent,
+    AdminTestComponent
   ],
   entryComponents: [
     ModalDisclaimerComponent,
@@ -58,18 +52,7 @@ export function nftimableContractWeb3Init(nftimableContractService: NftimableCon
     MatInputModule
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: web3Init,
-      multi: true,
-      deps: [Web3Service]
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: nftimableContractWeb3Init,
-      multi: true,
-      deps: [NftimableContractService]
-    },
+    Web3Service
   ],
   bootstrap: [AppComponent]
 })
